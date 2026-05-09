@@ -31,7 +31,11 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen pt-32 pb-20 px-5 sm:px-8">
-      <div className="mx-auto max-w-7xl grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
+      {/* Mobile background image */}
+      <div className="lg:hidden absolute inset-0 opacity-60" style={{backgroundImage: `url(${blessed})`, backgroundSize: 'cover', backgroundPosition: 'center'}} />
+      {/* Mobile overlay for readability */}
+      <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
+      <div className="mx-auto max-w-7xl grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center relative z-10">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -110,12 +114,12 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Portrait + floating cards */}
+        {/* Portrait + floating cards - hidden on mobile */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.2 }}
-          className="relative mx-auto w-full max-w-md"
+          className="hidden lg:block relative mx-auto w-full max-w-md"
         >
           <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-electric/30 via-purple/30 to-cyan/30 blur-3xl animate-pulse-glow" />
           <div className="relative rounded-[2rem] glass-strong p-2 overflow-hidden">
