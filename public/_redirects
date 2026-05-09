@@ -1,0 +1,6 @@
+# Don't rewrite these paths
+/assets/*     404
+/.assetsignore 404
+
+# Rewrite all other routes to index.html for SPA routing
+/*            /index.html   200
